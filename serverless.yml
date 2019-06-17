@@ -1,0 +1,57 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: simple-sls-slack # NOTE: update this with your service name
+
+plugins:
+  - serverless-pseudo-parameters
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: eu-central-1
+  memorySize: 128
+  environment:
+    accountId: '#{AWS::AccountId}'
+    region: '#{AWS::Region}'
+  iamRoleStatements:
+    - Effect: "Allow"
+      Resource: "*"
+      Action:
+        - "sns:*"
+        - "sqs:*"
+
+functions:
+  init:
+    handler: init.handler
+    timeout: 80 # optional, in seconds, default is 6
+    events:
+      - http:
+          path: init
+          method: post
+          cors: true
+  pushslack:
+    handler: pushslack.handler
+    events:
+      - sqs: arn:aws:sqs:#{AWS::Region}:#{AWS::AccountId}:test-queue
+  calculate:
+    timeout: 80 # optional, in seconds, default is 6
+    handler: calculate.handler
+    events:
+      - sns: calculate-topic # created immediately
+    onError: arn:aws:sns:#{AWS::Region}:#{AWS::AccountId}:dlq-topic
+  error:
+    handler: error.handler
+    events:
+      - sns: dlq-topic # created immediately
