@@ -1,3 +1,6 @@
+## Demo
+https://github.com/RyanDaDeng/serverless-slack-command/blob/master/demo.gif
+
 ## Installation
 
 (The instructions is a bit unclear, if you want more details, please contact me.)
