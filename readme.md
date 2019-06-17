@@ -9,7 +9,7 @@
 
 pre-step:
 1. Firstly create a queue in your aws SQS
-2. run node sqs_listqueues.js to see if your queue is retrieved
+2. run node sqs_listqueues.js to see if your queue is retrieved (before using it you should run npm install first)
 3. Copy your queue url
 4. Go to calculate.js and paste your queue url in QueueUrl
 
