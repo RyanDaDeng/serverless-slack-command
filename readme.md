@@ -1,5 +1,10 @@
 ## Installation
 
+### Requirements
+1. Serverless Framework https://serverless.com/
+2. AWS account
+3. Node
+
 ### Create your queue
 
 pre-step:
