@@ -1,11 +1,13 @@
 ## Installation
 
+(The instructions is a bit unclear, if you want more details, please contact me.)
+
 ### Requirements
 1. Serverless Framework https://serverless.com/
 2. AWS account
 3. Node
 
-### Create your queue
+### Create your SQS
 
 pre-step:
 1. Firstly create a queue in your aws SQS
