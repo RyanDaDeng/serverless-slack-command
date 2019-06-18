@@ -1,3 +1,12 @@
+## Demo
+
+A small slash command that determines if the given number is odd or even. (SQS,SNS,API Gateway,Lambda)
+
+![](https://github.com/RyanDaDeng/serverless-slack-command/blob/master/demo.gif)
+
+## Infrastructure
+![](https://github.com/RyanDaDeng/serverless-slack-command/blob/master/WechatIMG3.jpeg)
+
 ## Installation
 
 (The instructions is a bit unclear, if you want more details, please contact me.)
