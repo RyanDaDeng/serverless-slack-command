@@ -23,7 +23,7 @@ module.exports.handler =   function(event, context) {
     // the post options
     var optionspost = {
         host: 'hooks.slack.com',
-        path: '{slack_url}',
+        path: '/services/TJWF3F80Y/BKNN8RUCX/BqOlRARZAvKdPvD8l9wkqqWO',
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -41,6 +41,20 @@ module.exports.handler =   function(event, context) {
     reqPost.write(jsonObject);
     reqPost.end();
 
+
+
+    // request.post('https://hooks.slack.com/services/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', {
+    //     json: {
+    //         text: message
+    //     }
+    // }, (error, res, body) => {
+    //     if (error) {
+    //         console.error(error)
+    //         return
+    //     }
+    //     console.log(`statusCode: ${res.statusCode}`)
+    //     console.log(body)
+    // })
 
      return generateResponse(200,{'message':message})
 };

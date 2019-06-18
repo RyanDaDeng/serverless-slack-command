@@ -10,10 +10,17 @@ async function sendToSqs(message) {
 
     var params = {
         MessageBody: message, /* required */
-        QueueUrl: '{queue_url}', /* required */
+        QueueUrl: `https://sqs.eu-central-1.amazonaws.com/${process.env.accountId}/MyQueue`, /* required */
     };
     console.log('start sending.....');
-
+    // sqs.sendMessage(params, function (err, data) {
+    //     if (err) {
+    //         console.log("Error", err);
+    //     } else {
+    //         console.log("Success", data.MessageId);
+    //     }
+    // });
+    //
     return sqs.sendMessage(params).promise();
 
 }

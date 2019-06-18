@@ -35,7 +35,7 @@ provider:
 functions:
   init:
     handler: init.handler
-    timeout: 80 # optional, in seconds, default is 6
+    timeout: 6 # optional, in seconds, default is 6
     events:
       - http:
           path: init
@@ -44,9 +44,12 @@ functions:
   pushslack:
     handler: pushslack.handler
     events:
-      - sqs: arn:aws:sqs:#{AWS::Region}:#{AWS::AccountId}:test-queue
+      - sqs: arn:aws:sqs:#{AWS::Region}:#{AWS::AccountId}:MyQueue
+    environment:
+      QUEUE_NAME: ${self:resources.Resources.MyQueue.Properties.QueueName}
+
   calculate:
-    timeout: 80 # optional, in seconds, default is 6
+    timeout: 6 # optional, in seconds, default is 6
     handler: calculate.handler
     events:
       - sns: calculate-topic # created immediately
@@ -55,3 +58,10 @@ functions:
     handler: error.handler
     events:
       - sns: dlq-topic # created immediately
+
+resources:
+  Resources:
+    MyQueue:
+      Type: "AWS::SQS::Queue"
+      Properties:
+        QueueName: "MyQueue"
