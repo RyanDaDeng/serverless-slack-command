@@ -32,6 +32,7 @@ A small slash command that determines if the given number is odd or even. (SQS,S
 
 (note the region currently hard-coded in eu-central-1)
 
+3. run sls remove to remove all resources from aws
 ### Playaround
 1. run your command and follow by a digital number for example /my-slash-command 100
 2. The server will tell you if the number is odd or even.
