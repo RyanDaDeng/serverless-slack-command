@@ -16,13 +16,6 @@ A small slash command that determines if the given number is odd or even. (SQS,S
 2. AWS account
 3. Node
 
-### Create your SQS
-
-pre-step:
-1. Firstly create a queue in your aws SQS
-2. run node sqs_listqueues.js to see if your queue is retrieved (before using it you should run npm install first)
-3. Copy your queue url
-4. Go to calculate.js and paste your queue url in QueueUrl
 
 ### Set up your own workspace slack
 
